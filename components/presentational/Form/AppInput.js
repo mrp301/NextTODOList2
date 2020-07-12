@@ -4,9 +4,7 @@ import styled from 'styled-components';
 import { color } from '@/utils/color';
 
 const AppInput = (props) => {
-  const [value, setValue] = useState(props.value)
   const handleChange = ({ target }) => {
-    setValue(target.value);
     props.setValue(target.value)
   };
   const theme = useSelector(state => state.theme, shallowEqual);
@@ -21,7 +19,7 @@ const AppInput = (props) => {
       id={props.name}
       name={props.name}
       type='text'
-      value={value}
+      value={props.value}
       placeholder={props.placeholder}
       onChange={e => handleChange(e)}
       style={input}

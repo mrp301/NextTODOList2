@@ -27,7 +27,7 @@ function AppCard({ children, title, headerText, className }) {
 };
 
 const Header = styled.div`
-  padding: 10px;
+  padding: 10px 16px;
 `
 
 const Card = styled.div`
@@ -37,7 +37,7 @@ const Card = styled.div`
 `
 
 const Title = styled.h2`
-  margin-bottom: 4px;
+  margin-bottom: 8px;
   color: #fff;
   font-weight: bold;
   font-size: 20px;

@@ -6,7 +6,8 @@ import settings from "@/utils/settings";
 import Head from 'next/head';
 import AppButton from '@/components/presentational/AppButton';
 import css from "@/styles/utils.scss"
-import AppInput from '@/components/presentational/Form/AppInput';
+import styled from 'styled-components';
+import AppCard from '@/components/presentational/AppCard';
 
 
 const userFuga = () => {
@@ -38,29 +39,32 @@ function Page() {
       <Head>
         <title>設定{settings.title}</title>
       </Head>
-      <Layout>
-        <p>
-          <AppInput
-            type='text'
-            value={value}
-            setValue={setValue}
-          />
-          <AppButton
-            handleClick={() => dispatch({ type: 'CHANGE_THEME', theme: 0 })}
-            type={theme === 'nomal' ? 'primary': ''}
-            className={css['marginRight--xxsmall']}
-          >ホワイト</AppButton>
-          <AppButton
-            handleClick={() => dispatch({ type: 'CHANGE_THEME', theme: 1 })}
-            type={theme === 'dark' ? 'primary': ''}
-          >ダーク
-          </AppButton>
-        </p>
-        <p>現在のテーマ{theme}</p>
+      <Layout title="設定">
+        <AppCard title="カラーテーマ" headerText="カラーテーマを設定します。">
+          <p className={css['marginBottm--xxsmall']}>
+            <AppButton
+              handleClick={() => dispatch({ type: 'CHANGE_THEME', theme: 0 })}
+              type={theme === 'nomal' ? 'primary': ''}
+              className={css['marginRight--xxsmall']}
+            >ノーマル</AppButton>
+            <AppButton
+              handleClick={() => dispatch({ type: 'CHANGE_THEME', theme: 1 })}
+              type={theme === 'dark' ? 'primary': ''}
+            >ダーク
+            </AppButton>
+          </p>
+          <p>現在のテーマ：{theme}</p>
+        </AppCard>
       </Layout>
     </div>
   )
 }
+
+const Label = styled.p`
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 12px;
+`
 
 export default Page;
 

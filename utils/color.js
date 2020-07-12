@@ -10,6 +10,7 @@ const color = {
     baseTextColor: '#000',
     panel: '#fff',
     panelText: '#000',
+    header: '#fff',
   },
   dark: {
     primary: '#794bc4',
@@ -22,6 +23,7 @@ const color = {
     baseTextColor: '#15181c',
     panel: '#2f3336',
     panelText: '#d9d9d9',
+    header: '#000',
   },
 };
 

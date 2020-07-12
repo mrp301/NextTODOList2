@@ -13,13 +13,63 @@ import settings from "@/utils/settings";
 function SomePage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const tasks = [
+    {
+      id: 1,
+      title: 'タイトル',
+      requester: 'ゲスト',
+      state: '未着手',
+    },
+    {
+      id: 2,
+      title: 'タイトル',
+      requester: 'ゲスト',
+      state: '未着手',
+    },
+    {
+      id: 3,
+      title: 'タイトル',
+      requester: 'ゲスト',
+      state: '未着手',
+    },
+    {
+      id: 4,
+      title: 'タイトル',
+      requester: 'ゲスト',
+      state: '未着手',
+    },
+    {
+      id: 5,
+      title: 'タイトル',
+      requester: 'ゲスト',
+      state: '未着手',
+    },
+    {
+      id: 6,
+      title: 'タイトル',
+      requester: 'ゲスト',
+      state: '未着手',
+    },
+    {
+      id: 7,
+      title: 'タイトル',
+      requester: 'ゲスト',
+      state: '未着手',
+    },
+    {
+      id: 8,
+      title: 'タイトル',
+      requester: 'ゲスト',
+      state: '未着手',
+    },
+  ]
 
   return (
     <div>
       <Head>
         <title>スタイルガイド{settings.title}</title>
       </Head>
-      <Layout>
+      <Layout title="スタイルガイド">
         <AppCard
           title="ダッシュボード"
           headerText={<span>テキストテキストテキスト<br />テキストテキストテキスト</span>}
@@ -42,7 +92,7 @@ function SomePage() {
           headerText={<span>テキストテキストテキスト<br />テキストテキストテキスト</span>}
           className={css['marginBottm--small']}
         >
-          <List />
+          <List tasks={tasks} />
         </AppCard>
         <AppCard
           title="フォームパーツ"
@@ -74,7 +124,7 @@ function SomePage() {
             className={css['marginRight--xxsmall']}
           >プライマリー
           </AppButton>
-          <AppButton handleClick={() => {console.log('ほげ')}}>送信</AppButton> 
+          <AppButton handleClick={() => {console.log('ほげ')}}>デフォルト</AppButton> 
         </AppCard>
       </Layout>
     </div>

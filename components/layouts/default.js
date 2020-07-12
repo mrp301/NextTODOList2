@@ -4,9 +4,11 @@ import SideBar from '../organisms/SideBar';
 import styled from 'styled-components';
 import { color } from '@/utils/color';
 import css from "@/styles/utils.scss"
+import TheHeader from '@/components/presentational/TheHeader';
 
-function LayoutDefault({ children }) {
+function LayoutDefault(props) {
   const theme = useSelector(state => state.theme, shallowEqual);
+  const userName = useSelector(state => state.userName, shallowEqual);
 
   const main = {
     background: `${color[theme]['innerColor']}`
@@ -16,20 +18,21 @@ function LayoutDefault({ children }) {
     <Flex className={css[`text--${theme}`]}>
       <SideBar />
       <Main style={main}>
+        <TheHeader title={props.title} />
         <Inner>
-          {children}
+          {props.children}
         </Inner>
       </Main>
     </Flex>
   )
 };
 
+
 const Main = styled.main`
   flex: 1 1 auto;
   width: 100%;
   min-height: 100vh;
   margin-left: 180px;
-  padding: 20px;
 `
 
 const Flex = styled.div`
@@ -37,7 +40,7 @@ const Flex = styled.div`
 `
 
 const Inner = styled.div`
-  margin: 0 auto;
+  padding: 20px 20px 40px;
 `;
 
 export default LayoutDefault;
