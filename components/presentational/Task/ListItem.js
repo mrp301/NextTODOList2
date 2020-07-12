@@ -20,6 +20,7 @@ const ListItem = styled.tr`
 `
 
 const Td = styled.td`
+  max-width: 300px;
   padding: 10px;
   border-bottom: solid 1px #e6e6e6;
 `;

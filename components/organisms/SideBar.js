@@ -21,7 +21,7 @@ const request = [
 ];
 
 const task = [
-  { text: '未消化', href: '/', icon: 'task' },
+  { text: '未消化', href: '/received', icon: 'task' },
   { text: 'セルフ', href: '/', icon: 'self' },
   { text: 'お気に入り', href: '/', icon: 'star' },
   { text: '消化済み', href: '/', icon: 'done' },
