@@ -1,0 +1,15 @@
+.baseColor {
+  &--nomal {
+    background: #fff;
+    &:hover {
+      background-color: #d9d9d9;
+    }
+  }
+
+  &--dark {
+    background: #2f3336;
+    &:hover {
+      background-color: #414446;
+    }
+  }
+}

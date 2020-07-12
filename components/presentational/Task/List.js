@@ -1,17 +1,23 @@
 import styled from 'styled-components';
+import { useSelector, shallowEqual } from 'react-redux';
 import ListItem from '@/components/presentational/Task/ListItem';
 import ListHead from '@/components/presentational/Task/ListHead';
+import css from "@/styles/utils.scss"
 
-export default () => (
-  <List>
-    <ListHead />
-    <tbody>
-      {tasks.map((task, index) => (
-        <ListItem key={index} task={task} />
-      ))}
-    </tbody>
-  </List>
-);
+function List() {
+  const theme = useSelector(state => state.theme, shallowEqual);
+
+  return (
+    <_List>
+      <ListHead />
+      <tbody>
+        {tasks.map((task, index) => (
+          <ListItem key={index} task={task} />
+        ))}
+      </tbody>
+    </_List>
+  )
+};
 
 const tasks = [
   {
@@ -64,9 +70,8 @@ const tasks = [
   },
 ]
 
-const List = styled.table`
+const _List = styled.table`
   width: 100%;
-  background: #fff;
 `
 
-
+export default List;

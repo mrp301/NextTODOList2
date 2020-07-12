@@ -3,26 +3,9 @@ import { color } from '@/utils/color';
 import Link from 'next/link';
 import { useSelector, shallowEqual } from 'react-redux';
 
-const useClock = () => {
-  return useSelector(
-    (state) => ({
-      theme: state.theme
-    }),
-    shallowEqual
-  )
-}
-
 const AppPanel = ({ children, panelTitle }) => {
-  const { theme } = useClock();
-  const Title = styled.h2`
-    margin-bottom: 4px;
-    color: ${color[theme]['primary']};
-    font-weight: bold;
-    font-size: 18px;
-  `
-
   return (
-    <Link href="/hoge" passHref>
+    <Link href="/hoge">
       <Panel>
         <Icon><img src="../../static/images/icon_create.png" /></Icon>
         <Body>
@@ -34,11 +17,17 @@ const AppPanel = ({ children, panelTitle }) => {
   )
 };
 
+const Title = styled.h2`
+  margin-bottom: 4px;
+  font-weight: bold;
+  font-size: 18px;
+`
+
 const Panel = styled.li`
-  width: 30%;
-  background: #fff;
+  width: 100%;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
   border: solid 1px #e6e8eb;
+  border-radius: 4px;
   cursor: pointer;
   &:not(:last-child) {
     margin-right: 10px;

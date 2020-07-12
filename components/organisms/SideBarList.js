@@ -13,38 +13,20 @@ const state = () => {
 };
 
 const SideBarList = ({ title, list, className }) => {
-  const { theme } = state();
-  const Title = styled.p`
-    display: flex;
-    align-items: center;
-    height: 32px;
-    color: ${color[theme]['glay1']};
-    font-size: 12px;
-  `
+  const theme = useSelector(state => state.theme, shallowEqual);
+  const _title = {
+    color: `${color[theme]['glay1']}`,
+  }
+  const _a = {
+    color: `${color[theme]['glay1']}`,
+  }
 
-  const Item = styled.li`
-    a {
-      display: flex;
-      align-items: center;
-      padding: 5px;
-      height: 32px;
-      width: 100%;
-      font-size: 14px;
-      color: ${color[theme]['glay0']};
-      text-decoration: none;
-    }
-
-    &:hover {
-      cursor: pointer;
-      background: #494949;
-    }
-  `;
 
   const items = list.map(({ text, href, icon }) => {
     return (
       <Item key={text}>
         <Link href={href}>
-          <a>
+          <a style={_a}>
             <Icon
               type="image/svg+xml"
               data={`../../static/images/icon_${icon}.svg`}
@@ -56,13 +38,38 @@ const SideBarList = ({ title, list, className }) => {
 
   return (
     <div className={className}>
-      <Title>{title}</Title>
+      <Title style={_title}>{title}</Title>
       <List>
         {items}
       </List>
     </div>
   );
 };
+
+
+const Title = styled.p`
+  display: flex;
+  align-items: center;
+  height: 32px;
+  font-size: 12px;
+`
+
+const Item = styled.li`
+  a {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    height: 32px;
+    width: 100%;
+    font-size: 14px;
+    text-decoration: none;
+  }
+
+  &:hover {
+    cursor: pointer;
+    background: #494949;
+  }
+`;
 
 const List = styled.ul`
   flex: 1 1 auto;

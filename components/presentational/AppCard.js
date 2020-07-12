@@ -2,25 +2,20 @@ import styled from 'styled-components';
 import { color } from '../../utils/color';
 import { useSelector, shallowEqual } from 'react-redux';
 
-const useClock = () => {
-  return useSelector(
-    (state) => ({
-      theme: state.theme
-    }),
-    shallowEqual
-  )
-}
 
-const AppCard = ({ children, title, headerText, className }) => {
-  const { theme } = useClock();
-  const Header = styled.div`
-    padding: 10px;
-    background: ${color[theme]['primary']};
-  `
+function AppCard({ children, title, headerText, className }) {
+  const theme = useSelector(state => state.theme, shallowEqual);
+  const header = {
+    background: `${color[theme]['primary']}`
+  }
+  const card = {
+    background: `${color[theme]['panel']}`,
+    borderColor: `${color[theme]['glay2']}`,
+  }
 
   return (
-    <Card className={className}>
-      <Header>
+    <Card className={className} style={card}>
+      <Header style={header}>
         <Title>{title}</Title>
         <HeaderText>{headerText}</HeaderText>
       </Header>
@@ -31,9 +26,14 @@ const AppCard = ({ children, title, headerText, className }) => {
   )
 };
 
+const Header = styled.div`
+  padding: 10px;
+`
+
 const Card = styled.div`
-  background: #fff;
+  border: solid 1px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
 `
 
 const Title = styled.h2`

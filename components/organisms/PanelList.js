@@ -9,7 +9,7 @@ const AppPanelList = ({ children }) => (
 
 const PanelList = styled.ul`
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
 `
 
 export default AppPanelList;

@@ -13,7 +13,6 @@ export default() => (
 const colomNames = ['id', 'お題', '依頼者', 'ステータス'];
 
 const ListHead = styled.thead`
-  background: #fff;
 `
 
 const Title = styled.th`

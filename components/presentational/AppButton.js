@@ -2,17 +2,8 @@ import { useSelector, shallowEqual } from 'react-redux'
 import styled from 'styled-components';
 import { color } from '@/utils/color';
 
-const state = () => {
-  return useSelector(
-    (state) => ({
-      theme: state.theme
-    }),
-    shallowEqual
-  )
-};
-
 export default({ children, type, handleClick, className }) => {
-  const { theme } = state();
+  const theme = useSelector(state => state.theme, shallowEqual);
 
   const Button = styled.button`
   padding: 10px 5px;

@@ -2,4 +2,16 @@
   &--strong {
     font-weight: bold;
   }
+
+  &--center {
+    text-align: center;
+  }
+
+  &--nomal {
+    color: #000;
+  }
+  
+  &--dark {
+    color: #d9d9d9;
+  }
 }

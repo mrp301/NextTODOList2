@@ -1,23 +1,22 @@
+import { useSelector, shallowEqual } from 'react-redux'
 import styled from 'styled-components';
+import css from "@/styles/utils.scss"
 
 export default({ task }) => {
+  const theme = useSelector(state => state.theme, shallowEqual);
   const taskItems = (Object.keys(task)).map((item, index) => {
     return <Td key={index}>{task[item]}</Td>
   });
 
   return (
-    <ListItem>
+    <ListItem className={css[`baseColor--${theme}`]}>
       {taskItems}
     </ListItem>
   );
 };
 
 const ListItem = styled.tr`
-  background: #fff;
   cursor: pointer;
-  &:hover {
-    background: #f0f0f0;
-  }
 `
 
 const Td = styled.td`

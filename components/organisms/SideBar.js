@@ -36,32 +36,24 @@ const other = [
 const development = [
   { text: 'github', href: '/', icon: 'git' },
   { text: '発表資料', href: '', icon: 'guide' },
+  { text: 'ログアウト', href: '/login', icon: 'done' },
 ]
 
 const SideBar = () => {
-  const { theme } = state();
-  const Aside = styled.aside`
-    position: fixed;
-    top: 0;
-    left: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 15px 15px;
-    width: 180px;
-    height: 100vh;
-    color: #fff;
-    background: ${color[theme]['glay3']};
-  `
+  const theme = useSelector(state => state.theme, shallowEqual);
+  const userName = useSelector(state => state.userName, shallowEqual);
+  const email = useSelector(state => state.email, shallowEqual);
 
-  const Email = styled.p`
-    color: ${color[theme]['glay1']};
-    font-size: 12px;
-    line-height: normal;
-  `
+  const aside = {
+    background: `${color[theme]['glay3']}`,
+  }
+
+  const _email = {
+    color: `${color[theme]['glay1']}`,
+  }
 
   return (
-    <Aside>
+    <Aside style={aside}>
       <Logo>
         <Link href="/"><a>お題箱</a></Link>
       </Logo>
@@ -87,12 +79,31 @@ const SideBar = () => {
         />
       </ListContainer>
       <User>
-        <Name>mrbleのお題箱</Name>
-        <Email>tubdaka490@gmail.com</Email>
+        <Name>{userName}のお題箱</Name>
+        <Email style={_email}>{email}</Email>
       </User>
     </Aside>
   )
 };
+
+const Aside = styled.aside`
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 15px 15px;
+  width: 180px;
+  height: 100vh;
+  overflow: hidden;
+  color: #fff;
+`
+
+const Email = styled.p`
+  font-size: 12px;
+  line-height: normal;
+`
 
 const Logo = styled.h1`
   flex: 0 0 auto;

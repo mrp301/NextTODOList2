@@ -6,6 +6,8 @@ let store
 const theme = ['nomal', 'dark']
 const initialState = {
   theme: theme[0],
+  userName: 'mrble',
+  email: 'tubdaka490@gmail.com',
 }
 
 const reducer = (state = initialState, action) => {
@@ -14,6 +16,12 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         theme: theme[action.theme],
+      }
+    case 'LOGIN':
+      return {
+        ...state,
+        userName: action.name,
+        email: action.email,
       }
     default:
       return state

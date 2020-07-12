@@ -42,7 +42,6 @@ function SomePage() {
             isError={false}
             setValue={setHoge}
         />
-        {hoge}
       </Layout>
     </div>
   )
