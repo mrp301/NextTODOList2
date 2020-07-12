@@ -1,0 +1,59 @@
+.marginBottm {
+  &--xxxsmall {
+    margin-bottom: 4px;
+  }
+
+  &--xxsmall {
+    margin-bottom: 8px;
+  }
+
+  &--xsmall {
+    margin-bottom: 12px;
+  }
+
+  &--small {
+    margin-bottom: 16px;
+  }
+
+  &--medium {
+    margin-bottom: 24px;
+  }
+
+  &--large {
+    margin-bottom: 32px;
+  }
+
+  &--large {
+    margin-bottom: 48px;
+  }
+}
+
+.marginRight {
+  &--xxxsmall {
+    margin-right: 4px;
+  }
+
+  &--xxsmall {
+    margin-right: 8px;
+  }
+
+  &--xsmall {
+    margin-right: 12px;
+  }
+
+  &--small {
+    margin-right: 16px;
+  }
+
+  &--medium {
+    margin-right: 24px;
+  }
+
+  &--large {
+    margin-right: 32px;
+  }
+
+  &--large {
+    margin-right: 48px;
+  }
+}

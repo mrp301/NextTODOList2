@@ -1,7 +1,8 @@
 import { Provider } from 'react-redux'
 import { useStore } from '../store'
+import '../styles/base.scss'
 
-export default function App({ Component, pageProps }) {
+function App({ Component, pageProps }) {
   const store = useStore(pageProps.initialReduxState)
 
   return (
@@ -10,3 +11,5 @@ export default function App({ Component, pageProps }) {
     </Provider>
   )
 }
+
+export default App;

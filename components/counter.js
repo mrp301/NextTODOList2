@@ -15,6 +15,10 @@ const useCounter = () => {
     dispatch({
       type: 'RESET',
     })
+    const reset = () =>
+    dispatch({
+      type: 'HOGE',
+    })
   return { count, increment, decrement, reset }
 }
 

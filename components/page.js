@@ -1,26 +1,44 @@
 import { useDispatch } from 'react-redux'
-import useInterval from '../lib/useInterval'
-import Clock from './clock'
-import Counter from './counter'
-import Nav from './nav'
+import { useSelector, shallowEqual } from 'react-redux'
+
+const useCounter = () => {
+  const dispatch = useDispatch()
+  const hoge = () =>
+    dispatch({
+      type: 'HOGE',
+      value: 'あああ',
+    })
+  return hoge;
+}
+
+const userFuga = () => {
+  const dispatch = useDispatch()
+  const fuga = () =>
+    dispatch({
+      type: 'CHANGE_THEME',
+      theme: 1,
+    });
+  return { fuga }
+}
+
+const useClock = () => {
+  return useSelector(
+    (state) => ({
+      theme: state.theme
+    }),
+    shallowEqual
+  )
+}
 
 export default function Page() {
+  const { theme } = useClock()
+  const { fuga } = userFuga()
   const dispatch = useDispatch()
-
-  // Tick the time every second
-  useInterval(() => {
-    dispatch({
-      type: 'TICK',
-      light: true,
-      lastUpdate: Date.now(),
-    })
-  }, 1000)
-
   return (
     <>
-      <Nav />
-      <Clock />
-      <Counter />
+      <p><button onClick={() => dispatch({ type: 'CHANGE_THEME', theme: 1 })}>ホワイト</button></p>
+      <p><button onClick={() => dispatch({ type: 'CHANGE_THEME', theme: 0 })}>ダーク</button></p>
+      <p>現在のテーマ{theme}</p>
     </>
   )
 }
